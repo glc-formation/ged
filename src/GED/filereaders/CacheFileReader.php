@@ -1,10 +1,14 @@
 <?php
 
+namespace App\GED\filereaders;
+
+use App\GED\cache\SimpleCache;
+
 class CacheFileReader implements FileReader {
     private $delegate;
     private $cache;
 
-    public function __construct(FileReader $fileReader) {
+    public function __construct($fileReader) {
         $this->delegate = $fileReader;
         $this->cache = new SimpleCache();
     }

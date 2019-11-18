@@ -1,12 +1,13 @@
 <?php
 
+namespace App\GED\filereaders;
+
 class FileReaderBuilder {
-    private FileReader $fileReader;
+    private $fileReader;
 
     public function fromSource(string $source) {
         if (strpos($source, "http") == 0) {
             $this->fileReader = new UrlFileReader();
-            return new UrlFileReader();
         }
         $this->fileReader = new SimpleFileReader();
         return $this;

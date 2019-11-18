@@ -23,7 +23,7 @@
                 <td>{{ document.source }}</td>
                 <td>{{ document.content }}</td>
                 <td>{{ document.length }}</td>
-                <td>{{ document.owner }}</td>
+                <td>{{ document.owner.fullName }}</td>
                 <td>
                     <a href="{{ path('document_show', {'id': document.id}) }}">show</a>
                     <a href="{{ path('document_edit', {'id': document.id}) }}">edit</a>

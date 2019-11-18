@@ -1,5 +1,6 @@
 <?php
 
+namespace App\GED\cache;
 
 class SimpleCache implements Cached {
 
@@ -21,11 +22,11 @@ class SimpleCache implements Cached {
     /**
      * @return int le nombre de fois où le cache a évité de refaire le traitement (= nombre d'appels)
      */
-    public function getPerformance(): int {
+    public function getPerformance() {
         return $this->hits;
     }
 
-    public function hasValue(): bool {
+    public function hasValue() {
         return $this->valeurEnCache!==null;
     }
 }

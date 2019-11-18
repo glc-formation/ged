@@ -15,9 +15,9 @@ class Document
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
      */
     private $id;
 
@@ -43,9 +43,10 @@ class Document
     private $length;
 
     /**
-     * @ORM\Column(name="owner_id")
+     * @var User
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="documents")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="owner_id", nullable=false)
      */
     private $owner;
 

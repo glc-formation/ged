@@ -1,14 +1,16 @@
 <?php
 
+namespace App\GED\filereaders;
+
 class UrlFileReader implements FileReader
 {
-    private FileReader $delegate;
+    private $delegate;
 
     public function __construct() {
         $this->delegate = new SimpleFileReader();
     }
 
-    public function lireFichier(string $url):string {
+    public function lireFichier($url):string {
         // il se trouve que file_get_contents() lit aussi les URL  mais... on a besoin d'un petit traitement en plus,
         // pour formater la sortie proprement.
         // C'est pourquoi on utilise ici la composition : UrlFileReader délègue une partie du travail à un objet précis,

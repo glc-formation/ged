@@ -1,13 +1,15 @@
 <?php
 
+namespace App\GED\filereaders;
+
 class UTF8FileReader implements FileReader {
-    private FileReader $delegate;
+    private $delegate;
 
     public function __construct(FileReader $fileReader) {
         $this->delegate = $fileReader;
     }
 
-    public function lireFichier(string $file): string {
+    public function lireFichier($file): string {
         $fileRead = $this->delegate->lireFichier($file);
         $fileresult = utf8_encode($fileRead);
         return $fileresult;

@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Document;
 use App\Form\DocumentType;
+use App\GED\filereaders\FileReaderBuilder;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/document")
+ * @Route("/admin/document")
  */
 class DocumentController extends AbstractController
 {
@@ -34,13 +35,13 @@ class DocumentController extends AbstractController
     public function new(Request $request): Response
     {
         $document = new Document();
-        $document->setAuthor($this->getUser());
+        $document->setOwner($this->getUser());
         $form = $this->createForm(DocumentType::class, $document);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $content = (new \FileReaderBuilder())
+            $content = (new FileReaderBuilder())
                 ->fromSource($document->getSource())
                 ->withUtf8()
                 ->withCache()

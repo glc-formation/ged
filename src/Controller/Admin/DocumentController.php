@@ -49,6 +49,7 @@ class DocumentController extends AbstractController
                 ->lireFichier($document->getSource());
 
             $document->setContent($content);
+            $document->setLength(strlen($content));
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($document);

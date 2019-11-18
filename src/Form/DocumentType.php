@@ -13,9 +13,6 @@ class DocumentType extends AbstractType
     {
         $builder
             ->add('source')
-            ->add('content')
-            ->add('length')
-            ->add('owner')
         ;
     }
 

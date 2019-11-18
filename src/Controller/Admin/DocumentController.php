@@ -34,10 +34,21 @@ class DocumentController extends AbstractController
     public function new(Request $request): Response
     {
         $document = new Document();
+        $document->setAuthor($this->getUser());
         $form = $this->createForm(DocumentType::class, $document);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $content = (new \FileReaderBuilder())
+                ->fromSource($document->getSource())
+                ->withUtf8()
+                ->withCache()
+                ->build()
+                ->lireFichier($document->getSource());
+
+            $document->setContent($content);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($document);
             $entityManager->flush();

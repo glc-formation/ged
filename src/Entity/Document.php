@@ -42,6 +42,12 @@ class Document
      */
     private $length;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="documents")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $owner;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -79,6 +85,18 @@ class Document
     public function setLength(?int $length): self
     {
         $this->length = $length;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }

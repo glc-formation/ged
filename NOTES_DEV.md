@@ -28,9 +28,18 @@ https://symfony.com/doc/current/doctrine/reverse_engineering.html
 php bin/console doctrine:mapping:import "App\Entity" annotation --path=src/Entity
 ```
 
-
 ajouter les get/set
 
 ```bash
 php bin/console make:entity --regenerate App
+```
+
+ajouter le propriétaire du document
+```bash
+php bin/console make:entity
+```
+
+créer le script de migration
+```bash
+php bin/console make:migration
 ```

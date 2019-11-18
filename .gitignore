@@ -1,3 +1,8 @@
+/.idea/
+
+/public/build/fonts/glyphicons-*
+/public/build/images/glyphicons-*
+
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*
@@ -7,7 +12,10 @@
 # Email spool folder
 /app/spool/*
 
-# Cache, session files and logs (Symfony3)
+###> symfony/framework-bundle ###
+/.env.local
+/.env.*.local
+/public/bundles/
 /var/cache/*
 /var/logs/*
 /var/sessions/*
@@ -27,6 +35,7 @@
 !bin/symfony_requirements
 /vendor/
 
+###< symfony/framework-bundle ###
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
@@ -34,6 +43,7 @@
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
+###< symfony/phpunit-bridge ###
 
 # Build data
 /build/
@@ -41,8 +51,8 @@
 # Composer PHAR
 /composer.phar
 
-# Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
-
-# Embedded web-server pid file
-/.web-server-pid
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

@@ -43,3 +43,11 @@ créer le script de migration
 ```bash
 php bin/console make:migration
 ```
+
+### générer le CRUD
+
+```bash
+composer require maker-bundle
+php bin/console make:crud Document
+```
+

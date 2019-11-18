@@ -43,6 +43,7 @@ class Document
     private $length;
 
     /**
+     * @ORM\Column(name="owner_id")
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="documents")
      * @ORM\JoinColumn(nullable=false)
      */

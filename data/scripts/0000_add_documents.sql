@@ -8,3 +8,8 @@ create table documents
 	length int
 );
 
+alter table documents
+    add owner_id int default 0 not null;
+
+
+

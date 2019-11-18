@@ -4,8 +4,10 @@ namespace App\GED\filereaders;
 
 class FileReaderBuilder {
     private $fileReader;
+    private $source;
 
     public function fromSource(string $source) {
+        $this->source = $source;
         if (strpos($source, "http") == 0) {
             $this->fileReader = new UrlFileReader();
         }
@@ -25,5 +27,9 @@ class FileReaderBuilder {
 
     public function build(): FileReader {
         return $this->fileReader;
+    }
+
+    public function read(): string {
+        return $this->fileReader->lireFichier($this->source);
     }
 }

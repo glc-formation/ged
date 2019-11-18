@@ -45,8 +45,7 @@ class DocumentController extends AbstractController
                 ->fromSource($document->getSource())
                 ->withUtf8()
                 ->withCache()
-                ->build()
-                ->lireFichier($document->getSource());
+                ->read();
 
             $document->setContent($content);
             $document->setLength(strlen($content));
